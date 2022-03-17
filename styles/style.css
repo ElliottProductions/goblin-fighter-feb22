@@ -89,3 +89,11 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+.goblinwithclass {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/porcini.png')
+}
