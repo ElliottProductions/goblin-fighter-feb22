@@ -104,4 +104,7 @@ footer {
     justify-content: right;
 }
 
+.goblinwithclass > .emoji {
+    font-size: 50px;
+}
 

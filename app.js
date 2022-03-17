@@ -3,9 +3,9 @@ import { renderGoblin } from './render-utils.js';
 
 const goblinArray = [
     { name: 'Tapatio',
-        hp: 5 },
+        hp: 2 },
     { name: 'Sriracha',
-        hp: 5 }];
+        hp: 1 }];
 
 const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
@@ -14,13 +14,7 @@ const goblinForm = document.getElementById('goblin-form');
 
 
 
-for (let goober of goblinArray) {
-    
-    const gobEl = renderGoblin(goober);
 
-    goblinContainer.append(gobEl);
-
-}
 
 newGobButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -64,10 +58,22 @@ function displayGoblins() {
     for (let goober of goblinArray) {
         const newGob = renderGoblin(goober);
 
+        newGob.addEventListener('click', () => {
+            
+            if (goober.hp > 0) {
+                goober.hp--;
+                alert('owch');
+                displayGoblins();
+            }
+
+        });
+
         goblinContainer.append(newGob);
     }
 
 }
+
+displayGoblins();
 // let state
 
 // set event listeners 
