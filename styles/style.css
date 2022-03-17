@@ -76,7 +76,7 @@ header img {
 }
 
 p {
-    margin: var(--gutter);
+    margin: 5px;
 }
   
 footer {
@@ -95,16 +95,27 @@ footer {
     font-weight: bolder;
     font-size: larger;
     color:rgb(247, 10, 10);
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../assets/goblin.JPG');
     display: flex;
+    justify-content: center;
+}
+
+.goblinwithsass {
+    font-family: 'fantasy';
+    font-weight: bolder;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/gobmad.JPG');
+    display: flex;
     justify-content: right;
 }
 
-.goblinwithclass > .emoji {
-    font-size: 50px;
-}
 

@@ -3,7 +3,7 @@ import { renderGoblin } from './render-utils.js';
 
 const goblinArray = [
     { name: 'Tapatio',
-        hp: 2 },
+        hp: 5 },
     { name: 'Sriracha',
         hp: 1 }];
 
@@ -12,6 +12,7 @@ const goblinInput = document.getElementById('goblin-input');
 const newGobButton = document.getElementById('goblin-button');
 const goblinForm = document.getElementById('goblin-form');
 
+let yourHP = 10;
 
 
 
@@ -60,10 +61,19 @@ function displayGoblins() {
 
         newGob.addEventListener('click', () => {
             
-            if (goober.hp > 0) {
+            if (goober.hp > 0 && Math.floor(Math.random() > .5)) {
                 goober.hp--;
-                alert('owch');
                 displayGoblins();
+                alert('You hit!');
+            } else {
+                alert('Golbin: Nya, nya! You missed!');
+            }
+
+            if (Math.floor(Math.random() > .66)) {
+                alert('The Goblin\'s blade hit its mark!')
+                yourHP--;
+            } else {
+                alert('You dodged the Goblin\'s blade.')
             }
 
         });
