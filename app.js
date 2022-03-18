@@ -14,6 +14,7 @@ const newGobButton = document.getElementById('goblin-button');
 const goblinForm = document.getElementById('goblin-form');
 const yourHitPoints = document.getElementById('hero-hp');
 const gobsSlain = document.getElementById('gobs-slain');
+const heroImage = document.getElementById('hero');
 
 let yourHP = 10;
 let gobKills = 0;
@@ -100,6 +101,7 @@ function displayGoblins() {
                         yourHP--;
                         if (yourHP === 0) {
                             alert('YOU HAVE PERISHED!');
+                            heroImage.src = 'assets/herodead.JPG';
                         }
                     } else {
                         alert('You dodged the Goblin\'s blade.');
