@@ -54,8 +54,8 @@ newGobButton.addEventListener('click', (e) => {
     } else {
         const newGob = {
             name: data,
-            hp: Math.ceil(Math.random() * 5),
-            attk: Math.ceil(Math.random() * 3) };
+            hp: Math.ceil(Math.random() * 4),
+            attk: Math.ceil(Math.random() * 2) };
     
         goblinArray.unshift(newGob);
 
@@ -84,7 +84,7 @@ goblinForm.addEventListener('submit', (e) => {
     } else {
         const newGob = {
             name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-            hp: Math.ceil(Math.random() * 5) };
+            hp: Math.ceil(Math.random() * 4) };
     
         goblinArray.unshift(newGob);
        
