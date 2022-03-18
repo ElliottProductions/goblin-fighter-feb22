@@ -31,7 +31,7 @@ newGobButton.addEventListener('click', (e) => {
     } else {
         const newGob = {
             name: data,
-            hp: Math.ceil(Math.random() * 5)};
+            hp: Math.ceil(Math.random() * 5) };
     
         goblinArray.unshift(newGob);
         
