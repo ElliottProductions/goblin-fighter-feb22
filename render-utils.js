@@ -3,6 +3,9 @@ export function renderGoblin(goober) {
 
     if (goober.hp < 3) {
         newGob.classList.add('goblinwithsass');
+        if (goober.hp === 0) {
+            newGob.classList.add('goblinwithsads');
+        }
     } else {
         newGob.classList.add('goblinwithclass');
     }

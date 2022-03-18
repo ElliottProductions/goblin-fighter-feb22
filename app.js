@@ -3,7 +3,7 @@ import { renderGoblin } from './render-utils.js';
 
 const goblinArray = [
     { name: 'Tapatio',
-        hp: 5 },
+        hp: 3 },
     { name: 'Sriracha',
         hp: 1 }];
 
@@ -11,6 +11,7 @@ const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
 const newGobButton = document.getElementById('goblin-button');
 const goblinForm = document.getElementById('goblin-form');
+const yourHitPoints = document.getElementById('hero-hp');
 
 let yourHP = 10;
 
@@ -22,10 +23,10 @@ newGobButton.addEventListener('click', (e) => {
     const data = goblinInput.value;
 
     const newGob = {
-        name: data || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-        hp: Math.floor(Math.random() * 5 + 1)};
+        name: data || `Gob # ${Math.floor(Math.random() * 1000)}`,
+        hp: Math.ceil(Math.random() * 5)};
 
-    goblinArray.push(newGob);
+    goblinArray.unshift(newGob);
     
 
     displayGoblins();
@@ -41,9 +42,9 @@ goblinForm.addEventListener('submit', (e) => {
 
     const newGob = {
         name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-        hp: Math.floor(Math.random() * 5 + 1)};
+        hp: Math.ceil(Math.random() * 5) };
 
-    goblinArray.push(newGob);
+    goblinArray.unshift(newGob);
    
 
     displayGoblins();
@@ -61,21 +62,28 @@ function displayGoblins() {
 
         newGob.addEventListener('click', () => {
             
-            if (goober.hp > 0 && Math.floor(Math.random() > .5)) {
-                goober.hp--;
-                displayGoblins();
-                alert('You hit!');
-            } else {
-                alert('Golbin: Nya, nya! You missed!');
-            }
+            if (goober.hp > 0) {
+                if (Math.random() > .5) {
+                    
+                    goober.hp--;
+                    displayGoblins();
+                    alert('You hit!');
+                } else {
+                    alert('Golbin: Nya, nya! You missed!');
+                }
+                
+                if (goober.hp > 0) {
+                    if (Math.random() > .5) {
+                        alert('The Goblin\'s blade hit its mark!');
+                        yourHP--;
+                    } else {
+                        alert('You dodged the Goblin\'s blade.');
+                    }
 
-            if (Math.floor(Math.random() > .66)) {
-                alert('The Goblin\'s blade hit its mark!')
-                yourHP--;
-            } else {
-                alert('You dodged the Goblin\'s blade.')
+                }
+                displayHP();
+                
             }
-
         });
 
         goblinContainer.append(newGob);
@@ -83,7 +91,11 @@ function displayGoblins() {
 
 }
 
+function displayHP(){
+    yourHitPoints.textContent = `HP: ${yourHP}`;
+}
 displayGoblins();
+displayHP();
 // let state
 
 // set event listeners 

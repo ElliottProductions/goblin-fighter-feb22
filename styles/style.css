@@ -118,4 +118,59 @@ footer {
     justify-content: right;
 }
 
+.goblinwithsads {
+    font-family: 'fantasy';
+    font-weight: bolder;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/gobsad.JPG');
+    display: flex;
+    justify-content: right;
+}
 
+#goblins {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+  
+    width: 800px;
+}
+
+#upper-area {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    width: 800px;
+}
+
+#upper-area > div {
+    margin-right: 100px;
+}
+
+#hero-hp {
+    width: 100px;
+    height: 50px;
+    background-color: bisque;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    padding: 10px;
+    font-family: 'fantasy';
+    font-weight: bolder;
+}
+
+
+#hero {
+    
+    width: 150px;
+    
+    
+}
+
+.fight-area {
+    display: flex;
+    flex-direction: row;
+}
