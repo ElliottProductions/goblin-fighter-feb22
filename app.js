@@ -127,7 +127,7 @@ function displayGoblins() {
                             potionCount++;
                             displayPotions();
                         }
-                        if (gobKills === 4){
+                        if (gobKills === 1){
                             const gobBoss = { name: 'Cholula',
                                 hp: 8,
                                 attk: 3 };
