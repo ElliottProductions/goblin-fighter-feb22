@@ -128,6 +128,7 @@ function displayGoblins() {
                             displayPotions();
                         }
                         if (gobKills === 1){
+                            goblinArray = [];
                             const gobBoss = { name: 'Cholula',
                                 hp: 8,
                                 attk: 3 };
