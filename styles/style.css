@@ -37,6 +37,7 @@ main {
     justify-content: right;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    margin-left: 200px;
 }
 
 section {
