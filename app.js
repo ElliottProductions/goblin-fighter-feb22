@@ -112,52 +112,55 @@ function displayGoblins() {
             newGob.classList.remove('highlight');
         });
         newGob.addEventListener('click', () => {
-            
-            if (goober.hp > 0) {
-                if (Math.random() > .5) {
-                    
-                    goober.hp--;
-                    displayGoblins();
-                    alert('You hit!');
-                    if (goober.hp === 0) {
-                        gobKills++;
-                        gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
-                        if (Math.random() > .5){
-                            alert('The goblin dropped a potion!');
-                            potionCount++;
-                            displayPotions();
-                        }
-                        if (gobKills === 4){
-                            goblinArray.pop();
-                            goblinArray.pop();
-                            const gobBoss = { name: 'Cholula',
-                                hp: 8,
-                                attk: 3 };
-                            goblinArray.unshift(gobBoss);
-                            displayGoblins();
-                        }
-                    }
-                } else {
-                    alert('Golbin: Nya, nya! You missed!');
-                }
-                
+            if (yourHP > 0) {
                 if (goober.hp > 0) {
                     if (Math.random() > .5) {
-                        alert('The Goblin\'s blade hit its mark!');
-                        yourHP -= goober.attk;
-                        if (yourHP < 1) {
-                            heroImage.src = 'assets/herodead.JPG';
-                            alert('YOU HAVE PERISHED!');
-                            
+                        
+                        goober.hp--;
+                        displayGoblins();
+                        alert('You hit!');
+                        if (goober.hp === 0) {
+                            gobKills++;
+                            gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
+                            if (Math.random() > .5){
+                                alert('The goblin dropped a potion!');
+                                potionCount++;
+                                displayPotions();
+                            }
+                            if (gobKills === 4){
+                                goblinArray.pop();
+                                goblinArray.pop();
+                                const gobBoss = { name: 'Cholula',
+                                    hp: 8,
+                                    attk: 3 };
+                                goblinArray.unshift(gobBoss);
+                                displayGoblins();
+                            }
                         }
                     } else {
-                        alert('You dodged the Goblin\'s blade.');
+                        alert('Golbin: Nya, nya! You missed!');
                     }
-
+                    
+                    if (goober.hp > 0) {
+                        if (Math.random() > .5) {
+                            alert('The Goblin\'s blade hit its mark!');
+                            yourHP -= goober.attk;
+                            if (yourHP < 1) {
+                                heroImage.src = 'assets/herodead.JPG';
+                                yourHP = 0;
+                                alert('YOU HAVE PERISHED!');
+                                
+                            }
+                        } else {
+                            alert('You dodged the Goblin\'s blade.');
+                        }
+    
+                    }
+                    displayHP();
+                    
                 }
-                displayHP();
-                
             }
+            
         });
 
         goblinContainer.append(newGob);
