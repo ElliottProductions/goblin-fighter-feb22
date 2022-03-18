@@ -3,9 +3,11 @@ import { renderGoblin } from './render-utils.js';
 
 const goblinArray = [
     { name: 'Tapatio',
-        hp: 3 },
+        hp: 3,
+        attk: 1 },
     { name: 'Sriracha',
-        hp: 1 }];
+        hp: 1,
+        attk: 1 }];
 
 
 const goblinContainer = document.getElementById('goblins');
@@ -15,12 +17,28 @@ const goblinForm = document.getElementById('goblin-form');
 const yourHitPoints = document.getElementById('hero-hp');
 const gobsSlain = document.getElementById('gobs-slain');
 const heroImage = document.getElementById('hero');
+const healthPotions = document.getElementById('health-potions');
 
 let yourHP = 10;
 let gobKills = 0;
+let potionCount = 0;
+let potionsDisplayed = 0;
 
+//healthPotions.textContent = '🧉';
 
+healthPotions.addEventListener('click', () => {
+    console.log(potionsDisplayed);
+    if (potionsDisplayed > 0){
+        yourHP += 5;
+        potionsDisplayed--;
+        potionCount = potionsDisplayed;
+        potionsDisplayed = 0;
+        healthPotions.textContent = '';
+        displayPotions();
+        displayHP();
 
+    }
+});
 
 newGobButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -32,7 +50,8 @@ newGobButton.addEventListener('click', (e) => {
     } else {
         const newGob = {
             name: data,
-            hp: Math.ceil(Math.random() * 5) };
+            hp: Math.ceil(Math.random() * 5),
+            attk: Math.ceil(Math.random() * 3) };
     
         goblinArray.unshift(newGob);
         
@@ -90,6 +109,11 @@ function displayGoblins() {
                     if (goober.hp === 0) {
                         gobKills++;
                         gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
+                        if (Math.random() > .01){
+                            alert('The goblin dropped a potion!');
+                            potionCount++;
+                            displayPotions();
+                        }
                     }
                 } else {
                     alert('Golbin: Nya, nya! You missed!');
@@ -98,10 +122,11 @@ function displayGoblins() {
                 if (goober.hp > 0) {
                     if (Math.random() > .3) {
                         alert('The Goblin\'s blade hit its mark!');
-                        yourHP--;
+                        yourHP -= goober.attk;
                         if (yourHP === 0) {
-                            alert('YOU HAVE PERISHED!');
                             heroImage.src = 'assets/herodead.JPG';
+                            alert('YOU HAVE PERISHED!');
+                            
                         }
                     } else {
                         alert('You dodged the Goblin\'s blade.');
@@ -122,6 +147,19 @@ function displayGoblins() {
 function displayHP(){
     yourHitPoints.textContent = `HP: ${yourHP}`;
 }
+
+function displayPotions() {
+    
+    if (potionCount > 0){
+        potionCount--;
+        potionsDisplayed++;
+        healthPotions.textContent += '🧉';
+        displayPotions();
+    }
+
+}
+
+
 displayGoblins();
 displayHP();
 // let state

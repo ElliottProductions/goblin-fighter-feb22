@@ -18,8 +18,10 @@ export function renderGoblin(goober) {
     
     
     
+    
     nameEl.textContent = goober.name;
     hpEl.textContent = `HP: ${goober.hp}`;
+    
 
     
 
