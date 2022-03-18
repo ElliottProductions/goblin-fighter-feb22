@@ -142,7 +142,7 @@ function displayGoblins() {
                 }
                 
                 if (goober.hp > 0) {
-                    if (Math.random() > .4) {
+                    if (Math.random() > .5) {
                         alert('The Goblin\'s blade hit its mark!');
                         yourHP -= goober.attk;
                         if (yourHP < 1) {
