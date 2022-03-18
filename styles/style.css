@@ -34,7 +34,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
 }
@@ -166,6 +166,7 @@ footer {
 #hero {
     
     width: 150px;
+    background-size: contain;
     
     
 }
