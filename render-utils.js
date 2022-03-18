@@ -1,6 +1,8 @@
 export function renderGoblin(goober) {
     const newGob = document.createElement('div');
-
+    if (goober.name === 'Cholula'){
+        newGob.classList.add('bossgob');
+    }
     if (goober.hp < 3) {
         newGob.classList.add('goblinwithsass');
         if (goober.hp === 0) {

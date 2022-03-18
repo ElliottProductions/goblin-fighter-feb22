@@ -30,6 +30,10 @@ healthPotions.addEventListener('click', () => {
     console.log(potionsDisplayed);
     if (potionsDisplayed > 0){
         yourHP += 5;
+        if (yourHP > 9){
+            yourHP = 10;
+            alert('Your HP is MAXED OUT!');
+        }
         potionsDisplayed--;
         potionCount = potionsDisplayed;
         potionsDisplayed = 0;
@@ -54,6 +58,10 @@ newGobButton.addEventListener('click', (e) => {
             attk: Math.ceil(Math.random() * 3) };
     
         goblinArray.unshift(newGob);
+
+        if (goblinArray.length > 4){
+            goblinArray.pop();
+        }
         
     
         displayGoblins();
@@ -109,10 +117,17 @@ function displayGoblins() {
                     if (goober.hp === 0) {
                         gobKills++;
                         gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
-                        if (Math.random() > .01){
+                        if (Math.random() > .5){
                             alert('The goblin dropped a potion!');
                             potionCount++;
                             displayPotions();
+                        }
+                        if (gobKills === 4){
+                            const gobBoss = { name: 'Cholula',
+                                hp: 8,
+                                attk: 3 };
+                            goblinArray.unshift(gobBoss);
+                            displayGoblins();
                         }
                     }
                 } else {
@@ -120,10 +135,10 @@ function displayGoblins() {
                 }
                 
                 if (goober.hp > 0) {
-                    if (Math.random() > .3) {
+                    if (Math.random() > .4) {
                         alert('The Goblin\'s blade hit its mark!');
                         yourHP -= goober.attk;
-                        if (yourHP === 0) {
+                        if (yourHP < 1) {
                             heroImage.src = 'assets/herodead.JPG';
                             alert('YOU HAVE PERISHED!');
                             
@@ -145,7 +160,7 @@ function displayGoblins() {
 }
 
 function displayHP(){
-    yourHitPoints.textContent = `HP: ${yourHP}`;
+    yourHitPoints.textContent = `HP: ${yourHP}/10`;
 }
 
 function displayPotions() {
