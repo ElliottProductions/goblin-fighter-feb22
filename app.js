@@ -105,7 +105,12 @@ function displayGoblins() {
 
     for (let goober of goblinArray) {
         const newGob = renderGoblin(goober);
-
+        newGob.addEventListener('mouseover', () => {
+            newGob.classList.add('highlight');
+        });
+        newGob.addEventListener('mouseout', () => {
+            newGob.classList.remove('highlight');
+        });
         newGob.addEventListener('click', () => {
             
             if (goober.hp > 0) {

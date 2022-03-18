@@ -202,3 +202,7 @@ footer {
     font-size: 25px;
     width: 200px;
 }
+
+.highlight {
+    color:rgb(252, 151, 0);
+}
