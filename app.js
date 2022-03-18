@@ -7,31 +7,42 @@ const goblinArray = [
     { name: 'Sriracha',
         hp: 1 }];
 
+
 const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
 const newGobButton = document.getElementById('goblin-button');
 const goblinForm = document.getElementById('goblin-form');
 const yourHitPoints = document.getElementById('hero-hp');
+const gobsSlain = document.getElementById('gobs-slain');
 
 let yourHP = 10;
+let gobKills = 0;
 
 
 
 
 newGobButton.addEventListener('click', (e) => {
     e.preventDefault();
+
     const data = goblinInput.value;
 
-    const newGob = {
-        name: data || `Gob # ${Math.floor(Math.random() * 1000)}`,
-        hp: Math.ceil(Math.random() * 5)};
-
-    goblinArray.unshift(newGob);
+    if (goblinInput.value === ''){
+        alert('A goblin deserves a name!');
+    } else {
+        const newGob = {
+            name: data,
+            hp: Math.ceil(Math.random() * 5)};
     
-
-    displayGoblins();
+        goblinArray.unshift(newGob);
+        
     
-    goblinForm.reset();
+        displayGoblins();
+        
+        goblinForm.reset();
+
+    }
+
+    
 });
 
 goblinForm.addEventListener('submit', (e) => {
@@ -40,16 +51,23 @@ goblinForm.addEventListener('submit', (e) => {
 
     let nameValue = data.get('goblin-field');
 
-    const newGob = {
-        name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-        hp: Math.ceil(Math.random() * 5) };
-
-    goblinArray.unshift(newGob);
-   
-
-    displayGoblins();
+    if (nameValue === ''){
+        alert('A goblin deserves a name!');
+    } else {
+        const newGob = {
+            name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
+            hp: Math.ceil(Math.random() * 5) };
     
-    goblinForm.reset();
+        goblinArray.unshift(newGob);
+       
+    
+        displayGoblins();
+        
+        goblinForm.reset();
+
+    }
+
+    
 });
 
 
@@ -68,14 +86,21 @@ function displayGoblins() {
                     goober.hp--;
                     displayGoblins();
                     alert('You hit!');
+                    if (goober.hp === 0) {
+                        gobKills++;
+                        gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
+                    }
                 } else {
                     alert('Golbin: Nya, nya! You missed!');
                 }
                 
                 if (goober.hp > 0) {
-                    if (Math.random() > .5) {
+                    if (Math.random() > .3) {
                         alert('The Goblin\'s blade hit its mark!');
                         yourHP--;
+                        if (yourHP === 0) {
+                            alert('YOU HAVE PERISHED!');
+                        }
                     } else {
                         alert('You dodged the Goblin\'s blade.');
                     }
@@ -88,6 +113,7 @@ function displayGoblins() {
 
         goblinContainer.append(newGob);
     }
+    gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
 
 }
 

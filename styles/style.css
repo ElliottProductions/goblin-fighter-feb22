@@ -174,3 +174,12 @@ footer {
     display: flex;
     flex-direction: row;
 }
+
+#gobs-slain {
+    
+    background-color: blanchedalmond;
+    width: 180px;
+    height: 30px;
+    
+    
+}
