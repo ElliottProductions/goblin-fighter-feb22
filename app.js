@@ -19,7 +19,7 @@ const gobsSlain = document.getElementById('gobs-slain');
 const heroImage = document.getElementById('hero');
 const healthPotions = document.getElementById('health-potions');
 
-let yourHP = 1;
+let yourHP = 10;
 let gobKills = 0;
 let potionCount = 1;
 let potionsDisplayed = 0;
