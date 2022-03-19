@@ -24,7 +24,7 @@ let gobKills = 0;
 let potionCount = 1;
 let potionsDisplayed = 0;
 
-displayPotions()
+
 
 //healthPotions.textContent = '🧉';
 
