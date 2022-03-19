@@ -19,12 +19,12 @@ const gobsSlain = document.getElementById('gobs-slain');
 const heroImage = document.getElementById('hero');
 const healthPotions = document.getElementById('health-potions');
 
-let yourHP = 10;
+let yourHP = 1;
 let gobKills = 0;
-let potionCount = 0;
+let potionCount = 1;
 let potionsDisplayed = 0;
 
-
+displayPotions()
 
 //healthPotions.textContent = '🧉';
 
@@ -54,7 +54,7 @@ healthPotions.addEventListener('click', () => {
 
 newGobButton.addEventListener('click', (e) => {
     e.preventDefault();
-
+    const data = goblinInput.value;
     if (yourHP < 1){
         alert('No more fighting for you, rest now...');
     } else {
@@ -80,7 +80,7 @@ newGobButton.addEventListener('click', (e) => {
         }
 
     }
-    const data = goblinInput.value;
+    
 
     
 
