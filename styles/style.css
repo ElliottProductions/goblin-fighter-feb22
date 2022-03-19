@@ -29,6 +29,9 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-image: url('../assets/background.jpg');
+    background-image: repeat no-repeat;
+    background-size: cover;
 }
 
 main {
@@ -38,6 +41,7 @@ main {
     align-items: center;
     margin-bottom: calc(var(--footer-height));
     margin-left: 200px;
+    
 }
 
 section {
@@ -100,7 +104,7 @@ footer {
     height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../assets/goblin.JPG');
+    background-image: url('../assets/goblin.png');
     display: flex;
     justify-content: center;
 }
@@ -114,7 +118,7 @@ footer {
     height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../assets/gobmad.JPG');
+    background-image: url('../assets/gobmad.png');
     display: flex;
     justify-content: right;
 }
@@ -128,7 +132,7 @@ footer {
     height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../assets/gobsad.JPG');
+    background-image: url('../assets/gobsad.png');
     display: flex;
     justify-content: right;
 }
@@ -184,9 +188,7 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
-    height: 350px;
-
-    
+    height: 350px;  
 }
 
 #gobs-slain {

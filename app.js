@@ -24,76 +24,95 @@ let gobKills = 0;
 let potionCount = 0;
 let potionsDisplayed = 0;
 
+
+
 //healthPotions.textContent = '🧉';
 
 healthPotions.addEventListener('click', () => {
-    console.log(potionsDisplayed);
-    if (potionsDisplayed > 0){
-        yourHP += 5;
-        if (yourHP > 9){
-            yourHP = 10;
-            alert('Your HP is MAXED OUT!');
+    if (yourHP < 1) {
+        alert('Potions won\'t help you now...');
+    } else {
+        console.log(potionsDisplayed);
+        if (potionsDisplayed > 0){
+            yourHP += 5;
+            if (yourHP > 9){
+                yourHP = 10;
+                alert('Your HP is MAXED OUT!');
+            }
+            potionsDisplayed--;
+            potionCount = potionsDisplayed;
+            potionsDisplayed = 0;
+            healthPotions.textContent = '';
+            displayPotions();
+            displayHP();
+
         }
-        potionsDisplayed--;
-        potionCount = potionsDisplayed;
-        potionsDisplayed = 0;
-        healthPotions.textContent = '';
-        displayPotions();
-        displayHP();
 
     }
+    
 });
 
 newGobButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const data = goblinInput.value;
-
-    if (goblinInput.value === ''){
-        alert('A goblin deserves a name!');
+    if (yourHP < 1){
+        alert('No more fighting for you, rest now...');
     } else {
-        const newGob = {
-            name: data,
-            hp: Math.ceil(Math.random() * 4),
-            attk: Math.ceil(Math.random() * 2) };
+        if (goblinInput.value === ''){
+            alert('A goblin deserves a name!');
+        } else {
+            const newGob = {
+                name: data,
+                hp: Math.ceil(Math.random() * 4),
+                attk: Math.ceil(Math.random() * 2) };
+        
+            goblinArray.unshift(newGob);
     
-        goblinArray.unshift(newGob);
-
-        if (goblinArray.length > 4){
-            goblinArray.pop();
+            if (goblinArray.length > 4){
+                goblinArray.pop();
+            }
+            
+        
+            displayGoblins();
+            
+            goblinForm.reset();
+    
         }
-        
-    
-        displayGoblins();
-        
-        goblinForm.reset();
 
     }
+    const data = goblinInput.value;
+
+    
 
     
 });
 
 goblinForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const data = new FormData(goblinForm);
 
-    let nameValue = data.get('goblin-field');
+    if (yourHP < 1) {
+        
+        const data = new FormData(goblinForm);
 
-    if (nameValue === ''){
-        alert('A goblin deserves a name!');
-    } else {
-        const newGob = {
-            name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-            hp: Math.ceil(Math.random() * 4) };
+        let nameValue = data.get('goblin-field');
+
+        if (nameValue === ''){
+            alert('A goblin deserves a name!');
+        } else {
+            const newGob = {
+                name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
+                hp: Math.ceil(Math.random() * 4) };
     
-        goblinArray.unshift(newGob);
+            goblinArray.unshift(newGob);
        
     
-        displayGoblins();
+            displayGoblins();
         
-        goblinForm.reset();
+            goblinForm.reset();
 
+        }
     }
+    
 
     
 });
@@ -146,7 +165,7 @@ function displayGoblins() {
                             alert('The Goblin\'s blade hit its mark!');
                             yourHP -= goober.attk;
                             if (yourHP < 1) {
-                                heroImage.src = 'assets/herodead.JPG';
+                                heroImage.src = 'assets/herodead.png';
                                 yourHP = 0;
                                 alert('YOU HAVE PERISHED!');
                                 
