@@ -1,13 +1,11 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './render-utils.js';
+import { getGoblins, updateGoblins } from './fetch-utils.js';
 
-const goblinArray = [
-    { name: 'Tapatio',
-        hp: 3,
-        attk: 1 },
-    { name: 'Sriracha',
-        hp: 1,
-        attk: 1 }];
+window.addEventListener('load', async () => {
+    
+});
+
 
 
 const goblinContainer = document.getElementById('goblins');
@@ -21,8 +19,9 @@ const healthPotions = document.getElementById('health-potions');
 
 let yourHP = 10;
 let gobKills = 0;
-let potionCount = 1;
+let potionCount = 0;
 let potionsDisplayed = 0;
+let goblinArray = [];
 
 
 
@@ -118,9 +117,10 @@ goblinForm.addEventListener('submit', (e) => {
 });
 
 
-
-function displayGoblins() {
-    goblinContainer.innerHTML = '';
+async function displayGoblins() {
+    goblinArray = await getGoblins();
+    goblinContainer.textContent = '';
+    console.log(goblinArray);
 
     for (let goober of goblinArray) {
         const newGob = renderGoblin(goober);
@@ -130,13 +130,16 @@ function displayGoblins() {
         newGob.addEventListener('mouseout', () => {
             newGob.classList.remove('highlight');
         });
-        newGob.addEventListener('click', () => {
+        newGob.addEventListener('click', async () => {
             if (yourHP > 0) {
                 if (goober.hp > 0) {
-                    if (Math.random() > .5) {
+                    if (1 === 1) {
                         
                         goober.hp--;
+                        
+                        await updateGoblins(goober);
                         displayGoblins();
+                        
                         alert('You hit!');
                         if (goober.hp === 0) {
                             gobKills++;
@@ -146,15 +149,7 @@ function displayGoblins() {
                                 potionCount++;
                                 displayPotions();
                             }
-                            if (gobKills === 4){
-                                goblinArray.pop();
-                                goblinArray.pop();
-                                const gobBoss = { name: 'Cholula',
-                                    hp: 8,
-                                    attk: 3 };
-                                goblinArray.unshift(gobBoss);
-                                displayGoblins();
-                            }
+                     
                         }
                     } else {
                         alert('Golbin: Nya, nya! You missed!');
@@ -185,6 +180,8 @@ function displayGoblins() {
         goblinContainer.append(newGob);
     }
     gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
+    goblinArray = await getGoblins();
+    d
 
 }
 

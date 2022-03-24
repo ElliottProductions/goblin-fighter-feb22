@@ -150,6 +150,15 @@ footer {
     justify-content: right;
     flex-wrap: wrap-reverse;
     width: 800px;
+    position:absolute;
+    bottom: 300px;
+    left: 200px;
+    
+}
+
+#goblinsky {
+    width: 800px;
+    height: 400px;
 }
 
 #upper-area {
@@ -180,6 +189,8 @@ footer {
     width: 150px;
     height: 225px;
     background-size: contain;
+    position: absolute;
+    left: 100px;
     
     
 }
