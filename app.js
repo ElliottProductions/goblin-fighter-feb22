@@ -133,7 +133,7 @@ async function displayGoblins() {
         newGob.addEventListener('click', async () => {
             if (yourHP > 0) {
                 if (goober.hp > 0) {
-                    if (1 === 1) {
+                    if (Math.random() > .5) {
                         
                         goober.hp--;
                         
