@@ -1,18 +1,9 @@
 // import functions and grab DOM elements
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6YmFwaWd1YmJzd2tobXBrbW91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDc4Nzk0NTMsImV4cCI6MTk2MzQ1NTQ1M30.4fqkZViMQGidqxI8xltReNok9umY5rBiZ0lrBWSVBks';
-const SUPABASE_URL = 'https://gzbapigubbswkhmpkmou.supabase.co';
 
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
 import { renderGoblin } from './render-utils.js';
 import { getGoblins, updateGoblins, signInUser, logout } from './fetch-utils.js';
-
-window.addEventListener('load', async () => {
-    
-});
-
-
 
 const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
@@ -71,7 +62,7 @@ newGobButton.addEventListener('click', async (e) => {
     let password = passwordInput.value;
     let email = goblinInput.value;
     await signInUser(email, password);
-    displayGoblins();
+    await displayGoblins();
     alert('newest version 2.0');
 });
 
@@ -102,7 +93,7 @@ async function displayGoblins() {
                         goober.hp--;
                         
                         await updateGoblins(goober);
-                        displayGoblins();
+                        await displayGoblins();
                         
                         alert('You hit!');
                         if (goober.hp === 0) {
@@ -165,8 +156,8 @@ function displayPotions() {
 }
 
 
-displayGoblins();
-displayHP();
+//displayGoblins();
+//displayHP();
 // let state
 
 // set event listeners 
