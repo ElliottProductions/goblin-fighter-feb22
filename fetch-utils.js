@@ -17,3 +17,11 @@ export async function updateGoblins(booger){
         .update({ hp: booger.hp })
         .match({ name: booger.name });
 }
+
+export async function signInUser(){
+    let password = '123456';
+    let email = 'masterkey@dun.geon';
+    const response = await client.auth.signIn({ email, password });
+
+    return response.user;
+}

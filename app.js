@@ -1,9 +1,9 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './render-utils.js';
-import { getGoblins, updateGoblins } from './fetch-utils.js';
+import { getGoblins, updateGoblins, signInUser } from './fetch-utils.js';
 
 window.addEventListener('load', async () => {
-    
+    await signInUser();
 });
 
 
@@ -26,6 +26,10 @@ let goblinArray = [];
 
 
 //healthPotions.textContent = '🧉';
+
+
+
+
 
 healthPotions.addEventListener('click', () => {
     if (yourHP < 1) {
