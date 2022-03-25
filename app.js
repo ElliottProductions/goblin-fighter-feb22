@@ -72,7 +72,7 @@ newGobButton.addEventListener('click', async (e) => {
 logoutButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    logout();
+    await logout();
 });
 
 
