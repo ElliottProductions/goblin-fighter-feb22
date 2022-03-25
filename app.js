@@ -39,7 +39,6 @@ healthPotions.addEventListener('click', () => {
     if (yourHP < 1) {
         alert('Potions won\'t help you now...');
     } else {
-        console.log(potionsDisplayed);
         if (potionsDisplayed > 0){
             yourHP += 5;
             if (yourHP > 9){
@@ -79,7 +78,6 @@ logoutButton.addEventListener('click', async (e) => {
 async function displayGoblins() {
     goblinArray = await getGoblins();
     goblinContainer.textContent = '';
-    console.log(goblinArray);
 
     for (let goober of goblinArray) {
         const newGob = renderGoblin(goober);
