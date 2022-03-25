@@ -22,7 +22,7 @@ let potionCount = 0;
 let potionsDisplayed = 0;
 let goblinArray = [];
 
-
+var music1 = new Audio('assets/zeroeclipse.mp3');
 
 
 
@@ -63,6 +63,7 @@ newGobButton.addEventListener('click', async (e) => {
     let email = goblinInput.value;
     await signInUser(email, password);
     await displayGoblins();
+    music1.play();
 });
 
 logoutButton.addEventListener('click', async (e) => {
