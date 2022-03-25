@@ -12,7 +12,7 @@ export async function getGoblins(){
 }
 
 export async function updateGoblins(booger){
-    const data = await client
+    await client
         .from('goblins')
         .update({ hp: booger.hp })
         .match({ name: booger.name });

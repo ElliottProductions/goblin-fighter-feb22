@@ -12,7 +12,7 @@ const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
 const passwordInput = document.getElementById('password-input');
 const newGobButton = document.getElementById('goblin-button');
-const goblinForm = document.getElementById('goblin-form');
+//const goblinForm = document.getElementById('goblin-form');
 const yourHitPoints = document.getElementById('hero-hp');
 const gobsSlain = document.getElementById('gobs-slain');
 const heroImage = document.getElementById('hero');
@@ -73,7 +73,7 @@ logoutButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
     logout();
-})
+});
 
 
 async function displayGoblins() {
