@@ -63,7 +63,6 @@ newGobButton.addEventListener('click', async (e) => {
     let email = goblinInput.value;
     await signInUser(email, password);
     await displayGoblins();
-    alert('newest version 2.0');
 });
 
 logoutButton.addEventListener('click', async (e) => {
@@ -157,7 +156,7 @@ function displayPotions() {
 
 
 //displayGoblins();
-//displayHP();
+displayHP();
 // let state
 
 // set event listeners 
