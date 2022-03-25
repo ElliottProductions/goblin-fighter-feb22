@@ -66,6 +66,7 @@ newGobButton.addEventListener('click', async (e) => {
     let email = goblinInput.value;
     await signInUser(email, password);
     displayGoblins();
+    alert('newest version');
 });
 
 logoutButton.addEventListener('click', async (e) => {
