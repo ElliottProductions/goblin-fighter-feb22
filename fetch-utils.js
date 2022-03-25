@@ -18,10 +18,16 @@ export async function updateGoblins(booger){
         .match({ name: booger.name });
 }
 
-export async function signInUser(){
-    let password = '123456';
-    let email = 'masterkey@dun.geon';
+export async function signInUser(email, password){
+    
+    
     const response = await client.auth.signIn({ email, password });
 
     return response.user;
+}
+
+export async function logout() {
+    await client.auth.signOut();
+
+    return window.location.href = '../';
 }

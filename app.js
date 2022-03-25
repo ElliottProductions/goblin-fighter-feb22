@@ -1,27 +1,31 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './render-utils.js';
-import { getGoblins, updateGoblins, signInUser } from './fetch-utils.js';
+import { getGoblins, updateGoblins, signInUser, logout } from './fetch-utils.js';
 
 window.addEventListener('load', async () => {
-    await signInUser();
+    
 });
 
 
 
 const goblinContainer = document.getElementById('goblins');
 const goblinInput = document.getElementById('goblin-input');
+const passwordInput = document.getElementById('password-input');
 const newGobButton = document.getElementById('goblin-button');
 const goblinForm = document.getElementById('goblin-form');
 const yourHitPoints = document.getElementById('hero-hp');
 const gobsSlain = document.getElementById('gobs-slain');
 const heroImage = document.getElementById('hero');
 const healthPotions = document.getElementById('health-potions');
+const logoutButton = document.getElementById('log-out');
 
 let yourHP = 10;
 let gobKills = 0;
 let potionCount = 0;
 let potionsDisplayed = 0;
 let goblinArray = [];
+
+
 
 
 
@@ -55,70 +59,21 @@ healthPotions.addEventListener('click', () => {
     
 });
 
-newGobButton.addEventListener('click', (e) => {
+
+
+newGobButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const data = goblinInput.value;
-    if (yourHP < 1){
-        alert('No more fighting for you, rest now...');
-    } else {
-        if (goblinInput.value === ''){
-            alert('A goblin deserves a name!');
-        } else {
-            const newGob = {
-                name: data,
-                hp: Math.ceil(Math.random() * 4),
-                attk: Math.ceil(Math.random() * 2) };
-        
-            goblinArray.unshift(newGob);
-    
-            if (goblinArray.length > 4){
-                goblinArray.pop();
-            }
-            
-        
-            displayGoblins();
-            
-            goblinForm.reset();
-    
-        }
-
-    }
-    
-
-    
-
-    
+    let password = passwordInput.value;
+    let email = goblinInput.value;
+    await signInUser(email, password);
+    displayGoblins();
 });
 
-goblinForm.addEventListener('submit', (e) => {
+logoutButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    if (yourHP < 1) {
-        
-        const data = new FormData(goblinForm);
-
-        let nameValue = data.get('goblin-field');
-
-        if (nameValue === ''){
-            alert('A goblin deserves a name!');
-        } else {
-            const newGob = {
-                name: nameValue || `Goblin # ${Math.floor(Math.random() * 1000)}`,
-                hp: Math.ceil(Math.random() * 4) };
-    
-            goblinArray.unshift(newGob);
-       
-    
-            displayGoblins();
-        
-            goblinForm.reset();
-
-        }
-    }
-    
-
-    
-});
+    logout();
+})
 
 
 async function displayGoblins() {
@@ -185,7 +140,7 @@ async function displayGoblins() {
     }
     gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
     goblinArray = await getGoblins();
-    d
+    
 
 }
 
