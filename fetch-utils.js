@@ -6,7 +6,8 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 export async function getGoblins(){
     const response = await client
         .from('goblins')
-        .select('*');
+        .select('*')
+        .order('id', { ascending: true });
         
     return response.body;
 }
@@ -15,7 +16,7 @@ export async function updateGoblins(booger){
     await client
         .from('goblins')
         .update({ hp: booger.hp })
-        .match({ name: booger.name });
+        .match({ id: booger.id });
 }
 
 export async function signInUser(email, password){

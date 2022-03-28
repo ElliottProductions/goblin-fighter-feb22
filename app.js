@@ -63,7 +63,7 @@ newGobButton.addEventListener('click', async (e) => {
     let email = goblinInput.value;
     await signInUser(email, password);
     await displayGoblins();
-    music1.play();
+    //music1.play();
 });
 
 logoutButton.addEventListener('click', async (e) => {
@@ -74,7 +74,9 @@ logoutButton.addEventListener('click', async (e) => {
 
 
 async function displayGoblins() {
+ 
     goblinArray = await getGoblins();
+ 
     goblinContainer.textContent = '';
 
     for (let goober of goblinArray) {
@@ -88,13 +90,17 @@ async function displayGoblins() {
         newGob.addEventListener('click', async () => {
             if (yourHP > 0) {
                 if (goober.hp > 0) {
-                    if (Math.random() > .5) {
+                    if (Math.random() > .1) {
                         
-                        goober.hp--;
+                        //goober.hp--;
                         
                         await updateGoblins(goober);
+                        
+                        
+                        
                         await displayGoblins();
                         
+
                         alert('You hit!');
                         if (goober.hp === 0) {
                             gobKills++;
@@ -135,7 +141,7 @@ async function displayGoblins() {
         goblinContainer.append(newGob);
     }
     gobsSlain.textContent = `You've bested ${gobKills} goblins.`;
-    goblinArray = await getGoblins();
+    //goblinArray = await getGoblins();
     
 
 }
