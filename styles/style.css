@@ -29,14 +29,19 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
+    background-image: url('../assets/background.jpg');
+    background-image: repeat no-repeat;
+    background-size: cover;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    margin-left: 200px;
+    
 }
 
 section {
@@ -76,7 +81,7 @@ header img {
 }
 
 p {
-    margin: var(--gutter);
+    margin: 5px;
 }
   
 footer {
@@ -88,4 +93,129 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.goblinwithclass {
+    font-family: 'fantasy';
+    font-weight: bolder;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/goblin.png');
+    display: flex;
+    justify-content: center;
+}
+
+.goblinwithsass {
+    font-family: 'fantasy';
+    font-weight: bolder;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/gobmad.png');
+    display: flex;
+    justify-content: right;
+}
+
+.goblinwithsads {
+    font-family: 'fantasy';
+    font-weight: bolder;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/gobsad.png');
+    display: flex;
+    justify-content: right;
+}
+
+.bossgob {
+    
+    width: 300px;
+    height: 300px;
+    
+}
+
+#goblins {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    flex-wrap: wrap-reverse;
+    width: 800px;
+    position:absolute;
+    bottom: 300px;
+    left: 200px;
+    
+}
+
+#goblinsky {
+    width: 800px;
+    height: 400px;
+}
+
+#upper-area {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    width: 800px;
+}
+
+#upper-area > div {
+    margin-right: 100px;
+}
+
+#hero-hp {
+    width: 120px;
+    height: 50px;
+    background-color: bisque;
+    font-size: larger;
+    color:rgb(247, 10, 10);
+    padding: 10px;
+    font-family: 'fantasy';
+    font-weight: bolder;
+}
+
+
+#hero {
+    
+    width: 150px;
+    height: 225px;
+    background-size: contain;
+    position: absolute;
+    left: 100px;
+    
+    
+}
+
+.fight-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    height: 350px;  
+}
+
+#gobs-slain {
+    
+    background-color: blanchedalmond;
+    width: 180px;
+    height: 30px;
+    
+    
+}
+
+.potions {
+    font-size: 25px;
+    width: 200px;
+}
+
+.highlight {
+    color:rgb(252, 151, 0);
 }
