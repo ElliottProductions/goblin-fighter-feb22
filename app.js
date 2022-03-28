@@ -90,9 +90,9 @@ async function displayGoblins() {
         newGob.addEventListener('click', async () => {
             if (yourHP > 0) {
                 if (goober.hp > 0) {
-                    if (Math.random() > .1) {
+                    if (Math.random() > .5) {
                         
-                        //goober.hp--;
+                        goober.hp--;
                         
                         await updateGoblins(goober);
                         
