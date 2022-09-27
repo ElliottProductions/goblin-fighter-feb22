@@ -24,4 +24,6 @@ To do so you must go to: https://lucent-longma-699e99.netlify.app/
 
 Feel free to sign in using the default account that's auto-populated in the Sign-In form.
 
+You'll notice you can give a goblin negative attack power (ex: -3) which means that he will give you health points when he attacks!
+
 If you sign-up with your own email and password, make sure to use the same login info to sign into goblin fighter next time, or you won't be able to see and fight the goblins that you created!
