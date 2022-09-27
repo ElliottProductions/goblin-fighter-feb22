@@ -2,6 +2,8 @@ This is Goblin Fighter Online!
 
 It's a very simple game of chance, with a little strategy.
 
+This app uses Node js and Supabase (a relatively new "back-end as a service provider".)
+
 To start, click on the Login button (default values should be auto-populated in the email and password fields.)
 
 This should load the Goblins! Click on a Goblin to attack them, but beware, once you attack a Golbin, he will counter-attack!
@@ -21,5 +23,7 @@ Once you defeat all the Goblins, you may want to create more Goblins to fight so
 To do so you must go to: https://lucent-longma-699e99.netlify.app/
 
 Feel free to sign in using the default account that's auto-populated in the Sign-In form.
+
+You'll notice you can give a goblin negative attack power (ex: -3) which means that he will give you health points when he attacks!
 
 If you sign-up with your own email and password, make sure to use the same login info to sign into goblin fighter next time, or you won't be able to see and fight the goblins that you created!
